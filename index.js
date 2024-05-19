@@ -1,23 +1,21 @@
-const express=require("express");
-const dotenv=require("dotenv");
-
-const app=express();
+const express = require("express");
+const dotenv = require("dotenv");
 const cors = require("cors");
+
+const app = express();
 dotenv.config();
 
-const port =8000;
+const port = 8000;
+const uploadImageRouter = require("./routes/uploadImage");
+
 app.use(cors());
 
-const uploadImageRouter=require("./routes/uploadImage")
+app.get("/api/home", async (req, res) => {
+  res.json("Hello world!");
+});
 
+app.use('/upload-image', uploadImageRouter);
 
-app.get("/api/home",async (req,res)=>{
-    res.json("Hello world!")
-})
-
-
-app.use('/upload-image',uploadImageRouter)
-
-app.listen(port,()=>{
-    console.log("app listening on hte port ",port)
-})
+app.listen(port, () => {
+  console.log("App listening on port", port);
+});
