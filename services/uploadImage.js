@@ -39,7 +39,7 @@ console.log(file,"in the services ")
         'Content-Type': 'application/octet-stream',
       },
     };
-    console.log(options,"printing the response")
+   
 
     const req = https.request(options, (res) => {
       res.on('data', () => {}); 
