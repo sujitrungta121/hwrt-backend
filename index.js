@@ -6,9 +6,10 @@ const cors = require("cors");
 dotenv.config();
 
 const port =8000;
+app.use(cors());
+
 const uploadImageRouter=require("./routes/uploadImage")
 
-app.use(cors());
 
 app.get("/api/home",async (req,res)=>{
     res.json("Hello world!")
